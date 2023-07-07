@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -7,9 +7,7 @@ const lodash = require("lodash");
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
-mongoose.connect(
-  "mongodb+srv://akakhtarsbg:4409atif@cluster0.szmlwck.mongodb.net/blogDB?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.CONNECTION_LINK);
 
 const postSchema = new Schema({
   title: String,
